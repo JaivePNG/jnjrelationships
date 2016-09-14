@@ -11,9 +11,12 @@ var app = express()
 app.engine('hbs', hbs())
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'views'))
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
 
-app.get('/', index.get)
+app.get('/', index.getHome)
+app.get('/profile/:id', index.getProfile)
 
 app.listen(PORT, function () {
   console.log('Listening on port', PORT)
