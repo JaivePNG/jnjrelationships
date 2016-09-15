@@ -16,7 +16,11 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.get('/', index.getHome)
-app.get('/profile/:id', index.getProfile)
+app.get('/profile', index.getProfile)
+  // app.get('/profile/:id', index.oneProfile)
+app.get('/submit', index.newForm)
+app.post('/form', index.newUser)
+
 
 app.listen(PORT, function () {
   console.log('Listening on port', PORT)
